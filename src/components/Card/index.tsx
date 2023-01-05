@@ -23,8 +23,8 @@ export const Card = () => {
 
     return (
         <Styled.Card>
-            <h2> Advice #{advice.id} </h2>
-            <p> {advice.advice} </p>
+            <h2> Advice #{advice.id ?? "01"} </h2>
+            <p> {advice.advice ?? "Loading advice.."} </p>
             <img src="./images/pattern-divider-mobile.svg" alt="Pattern divider" />
             <button onClick={fetchData}>
                 <img src="./images/icon-dice.svg" alt="Dice icon" />
