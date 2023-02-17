@@ -4,17 +4,18 @@ import * as Styled from './style'
 
 
 type adviceProps = {
-    slip: adviceProps,
-    id: number;
-    advice: string;
+    slip: {
+        id: number;
+        advice: string;
+    };
 };
 
 export const Card = () => {
     const [advice, setAdvice] = useState<adviceProps>(Object);
 
     async function fetchData() {
-        const {slip}: adviceProps = await getAdvice();
-        setAdvice(slip);
+        const response: adviceProps = await getAdvice();
+        setAdvice(response);
     }
 
     useEffect(() => {
@@ -23,9 +24,12 @@ export const Card = () => {
 
     return (
         <Styled.Card>
-            <h2> Advice #{advice.id ?? "01"} </h2>
-            <p> {advice.advice ?? "Loading advice.."} </p>
-            <img src="./images/pattern-divider-mobile.svg" alt="Pattern divider" />
+            <h2> Advice #{advice.slip.id ?? "01"} </h2>
+            <p> {advice.slip.advice ?? "Loading advice.."} </p>
+            <img
+                src="./images/pattern-divider-mobile.svg"
+                alt="Pattern divider"
+            />
             <button onClick={fetchData}>
                 <img src="./images/icon-dice.svg" alt="Dice icon" />
             </button>
