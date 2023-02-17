@@ -14,7 +14,7 @@ export const Card = () => {
     const [advice, setAdvice] = useState<adviceProps>(Object);
 
     async function fetchData() {
-        const response: adviceProps = await getAdvice();
+        const response: adviceProps = await getAdvice()
         setAdvice(response);
     }
 
@@ -24,8 +24,8 @@ export const Card = () => {
 
     return (
         <Styled.Card>
-            <h2> Advice #{advice.slip.id ?? "01"} </h2>
-            <p> {advice.slip.advice ?? "Loading advice.."} </p>
+            <h2> Advice #{advice.slip?.id ?? "01"} </h2>
+            <p> {advice.slip?.advice ?? "Loading advice.."} </p>
             <img
                 src="./images/pattern-divider-mobile.svg"
                 alt="Pattern divider"
